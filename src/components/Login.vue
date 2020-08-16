@@ -19,9 +19,10 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field label="Login" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
+                  <v-text-field v-model="username" label="Login" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
 
                   <v-text-field
+                  v-model="password"
                     id="password"
                     label="Password"
                     name="password"
@@ -32,7 +33,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary">Login</v-btn>
+                <v-btn color="primary" @click="login">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -43,10 +44,37 @@
 </template>
 
 <script>
+import http from '@/api/http'
 export default {
   name: "Login",
   props: {
     source: String,
   },
+  data: function(){
+      return {
+          username: "seveniruby",
+          password: ""
+      }
+  },
+  methods:{
+      login: function(){
+          console.log(this)
+          http.post('/login', {
+              username: this.username,
+              password: this.password
+          }).then( res=>{
+              console.log(res)
+              if(res.data.errcode===0){
+                  //todo: jump
+                  this.$router.push('dashboard')
+                  
+              }else{
+                  //alert error
+                  window.alert("username or passowrd error")
+              }
+          })
+
+      }
+  }
 };
 </script>
