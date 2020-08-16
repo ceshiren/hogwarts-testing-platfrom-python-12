@@ -38,6 +38,7 @@
     </v-app-bar>
 
     <v-main>
+      <Login/>
       <HelloWorld/>
     </v-main>
   </v-app>
@@ -45,12 +46,14 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import Login from './components/Login'
 
 export default {
   name: 'App',
 
   components: {
     HelloWorld,
+    Login
   },
 
   data: () => ({
