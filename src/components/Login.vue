@@ -66,6 +66,8 @@ export default {
               console.log(res)
               if(res.data.errcode===0){
                   //todo: jump
+                  localStorage.setItem("token", res.data.data.token)
+                  console.log(localStorage.getItem("token"))
                   this.$router.push('dashboard')
                   
               }else{

@@ -20,7 +20,10 @@
           >
             <template v-slot:activator>
               <v-list-item-content>
+              <router-link to="/testcase">
+                  <!-- <router-link tag="v-list-item-title" to="/testcase">{{ item.text}}</router-link> -->
                 <v-list-item-title>{{ item.text }}</v-list-item-title>
+                </router-link>
               </v-list-item-content>
             </template>
             <v-list-item v-for="(child, i) in item.children" :key="i" link>
@@ -28,7 +31,9 @@
                 <v-icon>{{ child.icon }}</v-icon>
               </v-list-item-action>
               <v-list-item-content>
+                <router-link to="/testcase">
                 <v-list-item-title>{{ child.text }}</v-list-item-title>
+                </router-link>
               </v-list-item-content>
             </v-list-item>
           </v-list-group>
@@ -131,7 +136,7 @@ export default {
     dialog: false,
     drawer: null,
     items: [
-      { icon: "mdi-contacts", text: "Contacts" },
+      { icon: "mdi-contacts", text: "TestCase" },
       { icon: "mdi-history", text: "Frequently contacted" },
       { icon: "mdi-content-copy", text: "Duplicates" },
       {
