@@ -38,6 +38,7 @@
     </v-app-bar>
 
     <v-main>
+      <router-view></router-view>
       <Login/>
       <HelloWorld/>
     </v-main>
