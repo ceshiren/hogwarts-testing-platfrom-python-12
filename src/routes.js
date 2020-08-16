@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from './components/Login'
+import DashBoard from './components/DashBoard'
 
 Vue.use(VueRouter)
 
@@ -11,6 +12,7 @@ Vue.use(VueRouter)
 // 我们晚点再讨论嵌套路由。
 const routes = [
     { path: '/login', component: Login },
+    { path: '/dashboard', component: DashBoard }
 ]
 
 // 3. 创建 router 实例，然后传 `routes` 配置
